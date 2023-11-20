@@ -17,15 +17,18 @@ Devuelve una lista en formato tidy que facilite el análisis
 \description{
 Extrae la información que se obtiene en el csv que plickers exporta, para convertirla a una tibble que sigue las convenciones tidy-data
 se proporciona un ejemplo extraído directamente de plickers para que puedan hacerse pruebas incluso antes de interactuar y generar evaluaciones directamente en plickers.
-utilizar data("plickers_datos_ejemplo") para poner el contenido del archivo csv en .globalenv.
-utilizar posteriormente read_plickers(origin=plickers_datos_ejemplo)
+utilizar data("edu_ejemplo_datos_plickers") para poner el contenido del archivo csv en .globalenv.
+utilizar posteriormente read_plickers(origin=edu_ejemplo_datos_plickers)
 }
+\section{Importar datos}{
+
+Funciones para transformar datos provenientes de varios servicios de evaluación educativa
+}
+
 \examples{
 \dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # Ejemplos de uso de la función
-read_plickers(origin="c:\archivoexportadoporplickers.csv")
-read_plickers(origin="c:\archivoexportadoporplickers.csv",fecha="2023-01-01")
-plickers_datos_ejemplo \%>\% read_plickers()
-read_plickers(plickers_datos_ejemplo)
+edu_ejemplo_datos_plickers |> read_plickers()
+read_plickers(edu_ejemplo_datos_plickers)
 \dontshow{\}) # examplesIf}
 }
