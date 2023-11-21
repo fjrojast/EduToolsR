@@ -35,7 +35,10 @@
 
 # Datos ejemplo -----------------------------------------------------------
 
+<<<<<<< HEAD
 # ejemplo <- system.file("data", "edu_ejemplo_datos_plickers.csv", package = "EduToolsR")
+=======
+>>>>>>> refs/remotes/origin/main
 
 #' @title Datos de ejemplo desde plickers
 #' @description
@@ -46,6 +49,7 @@
 #' @examplesIf interactive()
 #' data(edu_ejemplo_datos_plickers)
 #' head(edu_ejemplo_datos_plickers)
+<<<<<<< HEAD
 #' ejemplo |> edu_read_plickers()
 #' edu_read_plickers(ejemplo)
 #'
@@ -53,6 +57,14 @@
 edu_ejemplo_datos_plickers <- readr::read_file(system.file("data", "edu_ejemplo_datos_plickers.csv", package = "EduToolsR")) #%>% as.vector()#%>% paste(collapse="\n")
 
 # edu_ejemplo_datos_plickers <- readr::read_file("~/EduToolsR/data/edu_ejemplo_datos_plickers.csv")
+=======
+#' edu_ejemplo_datos_plickers |> read_plickers()
+#' read_plickers(edu_ejemplo_datos_plickers)
+#'
+#' @export
+edu_ejemplo_datos_plickers <- readr::read_file(system.file("data", "edu_ejemplo_datos_plickers.csv", package = "EduToolsR")) %>% as.vector()#%>% paste(collapse="\n")
+
+>>>>>>> refs/remotes/origin/main
 
 
 
@@ -79,6 +91,7 @@ edu_ejemplo_datos_plickers <- readr::read_file(system.file("data", "edu_ejemplo_
 #' @examplesIf interactive()
 #' # Ejemplos de uso de la función
 #' edu_ejemplo_datos_plickers |> read_plickers()
+<<<<<<< HEAD
 #' edu_read_plickers(edu_ejemplo_datos_plickers)
 #'
 #' @export
@@ -87,6 +100,12 @@ edu_ejemplo_datos_plickers <- readr::read_file(system.file("data", "edu_ejemplo_
 
 
 edu_read_plickers <- function(origin=ejemplo, fecha = lubridate::now()) {
+=======
+#' read_plickers(edu_ejemplo_datos_plickers)
+#'
+#' @export
+read_plickers <- function(origin, fecha = lubridate::now()) {
+>>>>>>> refs/remotes/origin/main
   plickers <- readr::read_csv(origin, col_names = F, show_col_types = F)
 
   metadatos <- plickers[1, 1] %>%

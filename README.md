@@ -1,4 +1,8 @@
 # EduToolsR
+<<<<<<< HEAD
+=======
+Este repositorio proporciona herramientas útiles para la evaluación formativa de que pueden utilizar docentes y educadores en general, así como el procesamiento eficiente de datos relacionados con CURP, como parte de las tareas administrativas de centros escolares y cualquier otra instancia que requieran optimizar su gestión.
+>>>>>>> refs/remotes/origin/main
 
 
 Este repositorio proporciona herramientas útiles que abonan a la construcción de marcos descriptivos como parte del paradigma socioformativo de formación, en donde se integran gradualmente diversas herramientas que favorecen el conocimiento del contexto escolar y comunitario de los estudiantes con los que se trabaja, así como la evaluación formativa como herramienta fundamental que pueden utilizar docentes y educadores en general.
@@ -19,7 +23,11 @@ Considerando que es perfectamente normal y esperable que la evaluación provenga
 
 El objetivo principal de esta función es facilitar la evaluación formativa que los docentes realizan al transformar la información en formato csv, exportada desde desde Plickers, -un servicio ampliamente utilizado para realizar evaluaciones y sondeos en el aula mediante códigos QR y el celular del docente-. La función `edu_read_plickers` incluida en este repositorio permite convertir los datos en formato CSV generados por Plickers a una estructura ordenada, siguiendo la filosofía tidy y facilitando así su análisis y visualización.
 
+<<<<<<< HEAD
 ## Procesamiento de CURP 
+=======
+## Procesamiento de CURP (en proceso)
+>>>>>>> refs/remotes/origin/main
 
 Dentro de este repositorio, encontrarás funciones especializadas para el procesamiento de la Clave Única de Registro de Población (CURP), ofreciendo diversas utilidades:
 

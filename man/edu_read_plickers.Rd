@@ -29,6 +29,10 @@ Funciones para transformar datos provenientes de varios servicios de evaluación
 \dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # Ejemplos de uso de la función
 edu_ejemplo_datos_plickers |> read_plickers()
+<<<<<<< HEAD:man/edu_read_plickers.Rd
 edu_read_plickers(edu_ejemplo_datos_plickers)
+=======
+read_plickers(edu_ejemplo_datos_plickers)
+>>>>>>> refs/remotes/origin/main:man/read_plickers.Rd
 \dontshow{\}) # examplesIf}
 }

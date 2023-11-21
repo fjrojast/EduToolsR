@@ -20,8 +20,13 @@ Conjunto de datos de ejemplo
 \dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 data(edu_ejemplo_datos_plickers)
 head(edu_ejemplo_datos_plickers)
+<<<<<<< HEAD
 ejemplo |> edu_read_plickers()
 edu_read_plickers(ejemplo)
+=======
+edu_ejemplo_datos_plickers |> read_plickers()
+read_plickers(edu_ejemplo_datos_plickers)
+>>>>>>> refs/remotes/origin/main
 \dontshow{\}) # examplesIf}
 }
 \keyword{datasets}
