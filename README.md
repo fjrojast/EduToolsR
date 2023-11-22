@@ -1,4 +1,5 @@
 # EduToolsR
+Librería que facilita el diagnóstico y evaluación escolar
 
 Este repositorio está dirigido principalmente a docentes, con la intención de brindarles herramientas que suavicen su curva de aprendizaje e implementación de R a su portafolio de herramientas para el análisis de datos relacionados al contexto escolar. Proporciona herramientas útiles que abonan a la construcción de marcos descriptivos como parte del distintos paradigmas, entre ellos el paradigma socioformativo al cual se adhiere la Nueva Escuela Mexicana.
 
