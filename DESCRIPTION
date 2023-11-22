@@ -20,7 +20,8 @@ Imports:
     magrittr,
     readr,
     tidyr,
-    stringr
+    stringr,
+    tibble
 Suggests: 
     rlang,
     qpdf,

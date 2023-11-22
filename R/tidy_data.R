@@ -53,7 +53,7 @@ edu_ejemplo_listado_estudiantes <- readr::read_csv(system.file("data", "edu_ejem
 #'
 #' # Esta es la tibble a la cual se renombraron las columnas nombre_completo, nombre y nombres como una sola: alumno
 #'
-<<<<<<< HEAD
+
 #' edu_join_similar(e_ejemplo_estudiantes,"alumno","nombre_completo|nombre|nombres")
 #'
 #' edu_ejemplo_listado_estudiantes |> edu_join_similar("alumno","nombre_completo|nombre|nombres")
@@ -61,15 +61,7 @@ edu_ejemplo_listado_estudiantes <- readr::read_csv(system.file("data", "edu_ejem
 #' @export
 
 edu_join_similar <- function(tibble_procesar,nombre,matches_){
-=======
-#' edu_unir_semejantes(e_ejemplo_estudiantes,"alumno","nombre_completo|nombre|nombres")
-#'
-#' edu_ejemplo_listado_estudiantes |> e_unir_semejantes("alumno","nombre_completo|nombre|nombres")
-#'
-#' @export
 
-e_unir_semejantes <- function(tibble_procesar,nombre,matches_){
->>>>>>> refs/remotes/origin/main
   tibble_procesar %>%  #select() %>%
     rowwise() %>%
     mutate(  {{nombre}}  := paste(na.omit(dplyr::c_across(matches(matches_))), collapse = " ")) %>%

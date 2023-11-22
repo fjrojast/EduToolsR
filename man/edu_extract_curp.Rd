@@ -9,7 +9,7 @@ edu_extract_curp(curp, dato_a_obtener, fecha_calculo_edad = now())
 \arguments{
 \item{curp}{Especifica la curp desde la cual se van a obtener los datos}
 
-\item{dato_a_obtener}{Especificar el dato a obtener, dentro de  las siguientes: fecha_nacimiento, genero, genero_largo, edad_anios, edad_meses, combinacion_el_la, combinacion_l_la, combinacion_al_ala, combinacion_del_dela, combinacion_o_a, combinacion_o_a2}
+\item{dato_a_obtener}{Especificar el dato a obtener, dentro de  las siguientes: estado_nacimiento, estado_nacimiento_largo, fecha_nacimiento, genero, genero_largo, edad_anios, edad_meses, combinacion_el_la, combinacion_l_la, combinacion_al_ala, combinacion_del_dela, combinacion_o_a, combinacion_o_a2}
 
 \item{matches_}{fecha_calculo_edad. Es un dato opcional y aplica para cuando se requiere cálculos de edades. Si no se especifica, automáticamente realiza el cálculo con relación a la fecha actual de la computadora. Sin embargo hay casos en los que se necesita saber la edad que tenía la persona a la que corresponde la curp, por ejemplo el día primero de septiembre de 2023. En ese caso, se especifica "2023-09-01"}
 }

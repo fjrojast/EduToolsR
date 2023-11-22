@@ -3,6 +3,15 @@
 
 ## usethis namespace: start
 #' @importFrom dplyr mutate
+#' @importFrom dplyr pull
+#' @importFrom dplyr left_join
+#' @importFrom dplyr case_match
+#' @importFrom dplyr join_by
+#' @importFrom lubridate interval
+#' @importFrom lubridate now
+#' @importFrom lubridate dyears
+#' @importFrom lubridate dmonths
+#' @importFrom tibble as_tibble
 #' @importFrom readr read_file
 #' @importFrom lubridate ymd
 #' @importFrom lubridate dmy
@@ -35,10 +44,8 @@
 
 # Datos ejemplo -----------------------------------------------------------
 
-<<<<<<< HEAD
 # ejemplo <- system.file("data", "edu_ejemplo_datos_plickers.csv", package = "EduToolsR")
-=======
->>>>>>> refs/remotes/origin/main
+
 
 #' @title Datos de ejemplo desde plickers
 #' @description
@@ -49,22 +56,9 @@
 #' @examplesIf interactive()
 #' data(edu_ejemplo_datos_plickers)
 #' head(edu_ejemplo_datos_plickers)
-<<<<<<< HEAD
-#' ejemplo |> edu_read_plickers()
-#' edu_read_plickers(ejemplo)
-#'
-#' @export
-edu_ejemplo_datos_plickers <- readr::read_file(system.file("data", "edu_ejemplo_datos_plickers.csv", package = "EduToolsR")) #%>% as.vector()#%>% paste(collapse="\n")
 
-# edu_ejemplo_datos_plickers <- readr::read_file("~/EduToolsR/data/edu_ejemplo_datos_plickers.csv")
-=======
-#' edu_ejemplo_datos_plickers |> read_plickers()
-#' read_plickers(edu_ejemplo_datos_plickers)
-#'
 #' @export
 edu_ejemplo_datos_plickers <- readr::read_file(system.file("data", "edu_ejemplo_datos_plickers.csv", package = "EduToolsR")) %>% as.vector()#%>% paste(collapse="\n")
-
->>>>>>> refs/remotes/origin/main
 
 
 
@@ -91,21 +85,10 @@ edu_ejemplo_datos_plickers <- readr::read_file(system.file("data", "edu_ejemplo_
 #' @examplesIf interactive()
 #' # Ejemplos de uso de la función
 #' edu_ejemplo_datos_plickers |> read_plickers()
-<<<<<<< HEAD
-#' edu_read_plickers(edu_ejemplo_datos_plickers)
-#'
-#' @export
-#'
-#'
 
-
-edu_read_plickers <- function(origin=ejemplo, fecha = lubridate::now()) {
-=======
-#' read_plickers(edu_ejemplo_datos_plickers)
-#'
 #' @export
 read_plickers <- function(origin, fecha = lubridate::now()) {
->>>>>>> refs/remotes/origin/main
+
   plickers <- readr::read_csv(origin, col_names = F, show_col_types = F)
 
   metadatos <- plickers[1, 1] %>%

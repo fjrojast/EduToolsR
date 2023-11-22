@@ -15,7 +15,9 @@
 
 #'
 #' @param curp Especifica la curp desde la cual se van a obtener los datos
-#' @param dato_a_obtener Especificar el dato a obtener, dentro de  las siguientes: fecha_nacimiento, genero, genero_largo, edad_anios, edad_meses, combinacion_el_la, combinacion_l_la, combinacion_al_ala, combinacion_del_dela, combinacion_o_a, combinacion_o_a2
+
+#' @param dato_a_obtener Especificar el dato a obtener, dentro de  las siguientes: estado_nacimiento, estado_nacimiento_largo, fecha_nacimiento, genero, genero_largo, edad_anios, edad_meses, combinacion_el_la, combinacion_l_la, combinacion_al_ala, combinacion_del_dela, combinacion_o_a, combinacion_o_a2
+
 #' @param matches_ fecha_calculo_edad. Es un dato opcional y aplica para cuando se requiere cálculos de edades. Si no se especifica, automáticamente realiza el cálculo con relación a la fecha actual de la computadora. Sin embargo hay casos en los que se necesita saber la edad que tenía la persona a la que corresponde la curp, por ejemplo el día primero de septiembre de 2023. En ese caso, se especifica "2023-09-01"
 #'
 #' @examplesIf interactive()
@@ -71,51 +73,25 @@ edu_extract_curp <-  function(curp,dato_a_obtener,fecha_calculo_edad=now()) {
   estados <- read_csv("~/EduToolsR/data/edu_estados_mx.csv",show_col_types = F)
   # readr::read_csv(system.file("data", "edu_estados_mx.csv", package = "EduToolsR"),show_col_types = F)
 
-  # resultado <- curp %>%
-  # as_tibble() %>%
-  # transmute(
-  #   resultado = case_match(
-  #     {{ dato_a_obtener }},
-  #     "fecha_nacimiento" ~ curp %>% str_sub(5, 10),
-  #     "genero" ~ curp %>% str_sub(11, 11),
-  #     "genero2" ~ case_match(curp %>% str_sub(11, 11), "H" ~ "Hombre", "M" ~ "Mujer"),
-  #     "edad_anios" ~ interval(curp %>% str_sub(5, 10), fecha_calculo_edad) %/% dyears(1) %>% as.character(),
-  #     "edad_meses" ~ interval(curp %>% str_sub(5, 10), fecha_calculo_edad) %/% dmonths(1) %>% as.character(),
-  #     "combinacion_el_la" ~ case_match(curp %>% str_sub(11, 11), "H" ~ "el", "M" ~ "la"),
-  #     "combinacion_l_la" ~ case_match(curp %>% str_sub(11, 11), "H" ~ "l", "M" ~ " la"),
-  #     "combinacion_al_ala" ~ case_match(curp %>% str_sub(11, 11), "H" ~ "al", "M" ~ "a la"),
-  #     "combinacion_del_dela" ~ case_match(curp %>% str_sub(11, 11), "H" ~ "del", "M" ~ "de la"),
-  #     "combinacion_o_a" ~ case_match(curp %>% str_sub(11, 11), "H" ~ "", "M" ~ "a"),
-  #     "combinacion_o_a2" ~ case_match(curp %>% str_sub(11, 11), "H" ~ "o", "M" ~ "a"),
-  #     "estado_nacimiento" ~ curp %>% str_sub(12, 13),
-  #     "estado_nacimiento_largo" ~ left_join(curp %>% str_sub(12, 13) %>% as_tibble(), estados, join_by(value == estado_cod)) %>% pull(estado_nombre)
-  #   )
-  # ) %>%
-  # pull(resultado)
 
-
-
-
-
-  resultado <- curp %>%
-    as_tibble() %>%
-    mutate(
-
-        fecha_nacimiento= curp %>% str_sub(5, 10) %>% ymd,
-        genero= curp %>% str_sub(11, 11) %>% as_factor(),
-        genero_largo= case_match(curp %>% str_sub(11, 11), "H" ~ "Hombre", "M" ~ "Mujer") %>% as_factor,
-        edad_anios= interval(curp %>% str_sub(5, 10), fecha_calculo_edad) %/% dyears(1) ,
-        edad_meses=interval(curp %>% str_sub(5, 10), fecha_calculo_edad) %/% dmonths(1) ,
-        combinacion_el_la= case_match(curp %>% str_sub(11, 11), "H" ~ "el", "M" ~ "la"),
-        combinacion_l_la= case_match(curp %>% str_sub(11, 11), "H" ~ "l", "M" ~ " la"),
-        combinacion_al_ala= case_match(curp %>% str_sub(11, 11), "H" ~ "al", "M" ~ "a la"),
-        combinacion_del_dela= case_match(curp %>% str_sub(11, 11), "H" ~ "del", "M" ~ "de la"),
-        combinacion_o_a= case_match(curp %>% str_sub(11, 11), "H" ~ "", "M" ~ "a"),
-        combinacion_o_a2= case_match(curp %>% str_sub(11, 11), "H" ~ "o", "M" ~ "a"),
-        estado_nacimiento= curp %>% str_sub(12, 13),
-        estado_nacimiento_largo= left_join(curp %>% str_sub(12, 13) %>% as_tibble(), estados, join_by(value == estado_cod)) %>% pull(estado_nombre)
-    ) %>%
-    pull({{dato_a_obtener}})
+resultado <- curp %>%
+  as_tibble() %>%
+  mutate(
+    fecha_nacimiento = curp %>% str_sub(5, 10) %>% ymd(),
+    genero = curp %>% str_sub(11, 11) %>% as_factor(),
+    genero_largo = case_match(curp %>% str_sub(11, 11), "H" ~ "Hombre", "M" ~ "Mujer") %>% as_factor(),
+    edad_anios = interval(curp %>% str_sub(5, 10), fecha_calculo_edad) %/% dyears(1),
+    edad_meses = interval(curp %>% str_sub(5, 10), fecha_calculo_edad) %/% dmonths(1),
+    combinacion_el_la = case_match(curp %>% str_sub(11, 11), "H" ~ "el", "M" ~ "la"),
+    combinacion_l_la = case_match(curp %>% str_sub(11, 11), "H" ~ "l", "M" ~ " la"),
+    combinacion_al_ala = case_match(curp %>% str_sub(11, 11), "H" ~ "al", "M" ~ "a la"),
+    combinacion_del_dela = case_match(curp %>% str_sub(11, 11), "H" ~ "del", "M" ~ "de la"),
+    combinacion_o_a = case_match(curp %>% str_sub(11, 11), "H" ~ "", "M" ~ "a"),
+    combinacion_o_a2 = case_match(curp %>% str_sub(11, 11), "H" ~ "o", "M" ~ "a"),
+    estado_nacimiento = curp %>% str_sub(12, 13),
+    estado_nacimiento_largo = left_join(curp %>% str_sub(12, 13) %>% as_tibble(), estados, join_by(value == estado_cod)) %>% pull(estado_nombre)
+  ) %>%
+  dplyr::pull({{ dato_a_obtener }})
 
   return(resultado)
 
