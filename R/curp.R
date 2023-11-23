@@ -70,8 +70,8 @@
 
 # curp.do()
 edu_extract_curp <-  function(curp,dato_a_obtener,fecha_calculo_edad=now()) {
-  estados <- read_csv("~/EduToolsR/data/edu_estados_mx.csv",show_col_types = F)
-  # readr::read_csv(system.file("data", "edu_estados_mx.csv", package = "EduToolsR"),show_col_types = F)
+  # estados <- read_csv("~/EduToolsR/data/edu_estados_mx.csv",show_col_types = F)
+  readr::read_csv(system.file("data", "edu_estados_mx.csv", package = "EduToolsR"),show_col_types = F)
 
 
 resultado <- curp %>%
